@@ -17,7 +17,7 @@
 ### Как запустить
 
 ```
-git clone
+git clone https://github.com/pdll/bm-vladimir-test.git
 yarn
 yarn start
 ```
