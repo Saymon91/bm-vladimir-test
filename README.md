@@ -22,6 +22,8 @@ yarn
 yarn start
 ```
 
+Сервер запускается на http://localhost:7070
+
 База данных ожидается по адресу
 
 ```
@@ -42,6 +44,7 @@ mongodb://127.0.0.1:27017/vlad-test
 ### API
 
 API находится в файле /app/routes.js
+
 Контроллер API находится в файле /app/controllers/home.js
 
 ```
