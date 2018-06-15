@@ -53,7 +53,7 @@ GET /
 /**
 * query parameters:
 * pollId – required – _id of desired poll
-* userId
+* userId - optional - Number – _id of user
 */
 ```
 Возвращает информацию об опросе с _id = pollId
