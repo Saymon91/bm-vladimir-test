@@ -1,7 +1,6 @@
 /**
- * Тут комментируй
+ * Блок инициализации переменных и подключаемых библиотек
  */
-
 const mongoose = require('mongoose')
 const { extend, isArray } = require('lodash')
 
@@ -11,6 +10,20 @@ const ObjectId = mongoose.Schema.Types.ObjectId
 
 const targetModels = [ 'Post' ]
 
+/**
+ * Создается новая модель/схема для работы с БД в терминах MVC.
+ * @param {Object} {
+ *  userId {Object} _id пользователя,
+ *  votes {Object} счетчик голосов
+ *  title {Object} название опроса
+ *  multi {Object} разрешение множественного выбора вариантов опроса
+ *  target {Object} {
+ *    model {Object} название модели связанного объекта
+ *    item {Object} идентификатор связанного объекта
+ *  }
+ * } включает конфигурацию объекта is
+ * @see ./utils.js
+ */
 const model = new mongoose.Schema(extend({
   userId: { type: Number, required: true }, // в реальном проекте тут – ссылка на модель Users. Чтобы ты смог тут что-то пробовать – заменил на числовое поле
   //
@@ -25,7 +38,13 @@ const model = new mongoose.Schema(extend({
   }
 }, is))
 
+/**
+ * Добавляется индекс для БД по полю userId
+ */
 model.index({ 'userId': 1 })
+/**
+ * Добавляется индекс для БД по полю target.item
+ */
 model.index({ 'target.item': 1 })
 
 model.virtual('options', {
